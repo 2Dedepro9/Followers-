@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Top Up Followers All Sosmed - DED STORE</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 500px;
+      margin: 40px auto;
+      background-color: #1f1f1f;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 0 10px #000;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #25d366;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      color: #ccc;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+    }
+    input, select {
+      background-color: #2a2a2a;
+      color: #fff;
+    }
+    button {
+      background-color: #25d366;
+      color: white;
+      font-weight: bold;
+      margin-top: 25px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1ebf5c;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Suntik Followers All Sosmed</h2>
+
+    <label for="platform">Pilih Platform:</label>
+    <select id="platform">
+      <option value="Instagram">Instagram</option>
+      <option value="TikTok">TikTok</option>
+      <option value="YouTube">YouTube</option>
+      <option value="Facebook">Facebook</option>
+      <option value="X (Twitter)">X (Twitter)</option>
+      <option value="Threads">Threads</option>
+    </select>
+
+    <label for="username">Username / URL Sosmed:</label>
+    <input type="text" id="username" placeholder="contoh: @dedstore_official atau URL" required>
+
+    <label for="jumlah">Jumlah Followers:</label>
+    <select id="jumlah">
+      <option value="100">100 Followers - Rp5.000</option>
+      <option value="500">500 Followers - Rp20.000</option>
+      <option value="1000">1000 Followers - Rp35.000</option>
+      <option value="2000">2000 Followers - Rp60.000</option>
+    </select>
+
+    <label for="metode">Metode Pembayaran:</label>
+    <select id="metode">
+      <option value="Dana">Dana</option>
+      <option value="OVO">OVO</option>
+      <option value="ShopeePay">ShopeePay</option>
+      <option value="QRIS">QRIS</option>
+      <option value="Transfer Bank">Transfer Bank</option>
+    </select>
+
+    <button onclick="kirimPesanan()">Kirim Pesanan ke WhatsApp</button>
+  </div>
+
+  <script>
+    function generateOrderID() {
+      const date = new Date();
+      return 'ORD' + date.getTime(); // contoh: ORD1722345612543
+    }
+
+    function kirimPesanan() {
+      const platform = document.getElementById("platform").value;
+      const username = document.getElementById("username").value.trim();
+      const jumlah = document.getElementById("jumlah").value;
+      const metode = document.getElementById("metode").value;
+      const orderId = generateOrderID();
+
+      if (!username) {
+        alert("Silakan isi username atau URL sosmed.");
+        return;
+      }
+
+      const pesan = `Halo Admin DED STORE 👋
+
+Saya ingin order suntik followers
+
+🆔 Nomor Order: ${orderId}
+📱 Platform: ${platform}
+👤 Username / URL: ${username}
+📦 Jumlah Followers: ${jumlah}
+💳 Metode Pembayaran: ${metode}
+
+Mohon segera diproses, terima kasih 🙏`;
+
+      const noAdmin = "628988967496"; // Ganti dengan nomor WhatsApp admin
+      const linkWA = `https://wa.me/${noAdmin}?text=${encodeURIComponent(pesan)}`;
+      window.open(linkWA, "_blank");
+    }
+  </script>
+</body>
+</html>
